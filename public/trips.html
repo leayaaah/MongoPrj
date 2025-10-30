@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chuyến — Đặt vé tàu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/public/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/public/index.html">Đặt Vé Tàu</a>
+    </div>
+  </nav>
+  <main class="container my-4">
+    <h3>Chuyến</h3>
+    <p class="small-muted">Danh sách chuyến (demo). Chức năng CRUD có thể được triển khai sau.</p>
+    <div id="tripList"></div>
+  </main>
+  <script src="/public/js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Render demo trips on this page
+    const tripList = document.getElementById('tripList');
+    tripList.innerHTML = demoTrips.map(t => `
+      <div class="card mb-2"><div class="card-body">
+        <h6>${t.tripId} — ${t.route}</h6>
+        <div class="small-muted">Tàu: ${t.train} — Giá: ${formatVND(t.price)} — Trạng thái: ${t.status}</div>
+      </div></div>
+    `).join('');
+  </script>
+</body>
+</html>
